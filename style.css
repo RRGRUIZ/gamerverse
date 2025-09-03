@@ -1,0 +1,433 @@
+/* Variables CSS para facilitar la gestión de colores y fuentes */
+:root {
+    --bg-dark: #1a1a2e; /* Fondo principal oscuro */
+    --bg-dark-light: #16213e; /* Fondo secundario oscuro */
+    --accent-color: #e94560; /* Color de acento vibrante (rojo/rosa) */
+    --text-light: #e0e0e0; /* Texto claro principal */
+    --text-lighter: #ffffff; /* Texto más blanco */
+    --text-muted: #a0a0a0; /* Texto más tenue */
+    --font-heading: 'Orbitron', sans-serif; /* Fuente para títulos (gamer) */
+    --font-body: 'Roboto', sans-serif; /* Fuente para el cuerpo */
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+}
+
+/* Reset básico y estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-light);
+    background-color: var(--bg-dark);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--text-lighter);
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--text-lighter);
+    margin-bottom: 15px;
+}
+
+h2 { font-size: 3em; }
+h3 { font-size: 2em; }
+h4 { font-size: 1.5em; }
+
+section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+/* Botones */
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color var(--transition-speed), color var(--transition-speed), transform var(--transition-speed);
+    margin: 10px;
+    font-size: 0.9em;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--text-lighter);
+    border: 2px solid var(--accent-color);
+}
+
+.btn-primary:hover {
+    background-color: darken(var(--accent-color), 10%); /* No es CSS nativo, pero ilustra el concepto */
+    background-color: #c93b52; /* Ejemplo de un color un poco más oscuro */
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-color);
+    color: var(--text-lighter);
+    transform: translateY(-3px);
+}
+
+/* -------------------------------------------------------------------- */
+/* Header */
+/* -------------------------------------------------------------------- */
+.main-header {
+    background-color: var(--bg-dark-light);
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header .logo {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.main-header .logo a {
+    color: var(--text-lighter);
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.main-header .main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-header .main-nav ul li {
+    margin-left: 30px;
+}
+
+.main-header .main-nav ul li a {
+    color: var(--text-light);
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 5px 0;
+    position: relative;
+}
+
+.main-header .main-nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+.main-header .main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width var(--transition-speed) ease-in-out;
+}
+
+.main-header .main-nav ul li a:hover::after {
+    width: 100%;
+}
+
+
+/* -------------------------------------------------------------------- */
+/* Hero Section */
+/* -------------------------------------------------------------------- */
+.hero-section {
+    background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://via.placeholder.com/1500x800/000000/ffffff?text=Fondo+Juego+Epic') no-repeat center center/cover;
+    height: 70vh; /* Ajusta la altura según tus necesidades */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-lighter);
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content .tagline {
+    font-size: 1.2em;
+    color: var(--accent-color);
+    font-family: var(--font-heading);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.hero-content h2 {
+    font-size: 4em;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: var(--text-light);
+}
+
+/* -------------------------------------------------------------------- */
+/* Latest News Section */
+/* -------------------------------------------------------------------- */
+.latest-news-section {
+    background-color: var(--bg-dark-light);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.latest-news-section h3 {
+    margin-bottom: 40px;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: left;
+}
+
+.news-card {
+    background-color: var(--bg-dark);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform var(--transition-speed);
+}
+
+.news-card:hover {
+    transform: translateY(-10px);
+}
+
+.news-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.news-info {
+    padding: 20px;
+}
+
+.news-info h4 {
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+.news-info p {
+    font-size: 0.95em;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.read-more {
+    color: var(--accent-color);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.read-more i {
+    margin-left: 8px;
+    transition: margin-left var(--transition-speed);
+}
+
+.read-more:hover i {
+    margin-left: 15px;
+}
+
+/* -------------------------------------------------------------------- */
+/* Popular Games Section */
+/* -------------------------------------------------------------------- */
+.popular-games-section {
+    background-color: var(--bg-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.popular-games-section h3 {
+    margin-bottom: 40px;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.game-card {
+    background-color: var(--bg-dark-light);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform var(--transition-speed);
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.game-card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+.game-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.game-card h4 {
+    margin-bottom: 5px;
+}
+
+.game-card .game-genre {
+    color: var(--text-muted);
+    font-size: 0.9em;
+}
+
+
+/* -------------------------------------------------------------------- */
+/* Footer */
+/* -------------------------------------------------------------------- */
+.main-footer {
+    background-color: var(--bg-dark-light);
+    padding: 30px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    font-size: 0.9em;
+}
+
+.main-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Para responsividad */
+}
+
+.main-footer p {
+    margin: 0;
+}
+
+.social-links a {
+    color: var(--text-muted);
+    font-size: 1.5em;
+    margin-left: 15px;
+    transition: color var(--transition-speed);
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+
+/* -------------------------------------------------------------------- */
+/* Media Queries para Responsividad */
+/* -------------------------------------------------------------------- */
+@media (max-width: 900px) {
+    .main-header .main-nav ul li {
+        margin-left: 20px;
+    }
+
+    .hero-content h2 {
+        font-size: 3em;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-header .logo {
+        margin-bottom: 20px;
+    }
+
+    .main-header .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .main-header .main-nav ul li {
+        margin: 10px 0;
+    }
+
+    .hero-content h2 {
+        font-size: 2.5em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .hero-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn-primary, .btn-secondary {
+        width: 80%;
+        max-width: 300px;
+        margin: 10px auto;
+    }
+
+    .news-grid, .games-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .main-footer .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-footer p {
+        margin-bottom: 15px;
+    }
+
+    .social-links a {
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h2 {
+        font-size: 2em;
+    }
+    .hero-content .tagline {
+        font-size: 1em;
+    }
+    section {
+        padding: 50px 0;
+    }
+    h2 { font-size: 2.5em; }
+    h3 { font-size: 1.8em; }
+    h4 { font-size: 1.3em; }
+}
